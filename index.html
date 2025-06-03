@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products with Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .heart-icon {
+            transition: all 0.3s ease;
+        }
+        .heart-liked {
+            color: #ef4444;
+            transform: scale(1.2);
+        }
+        .cart-item {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 min-h-screen p-10">
+    
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-white text-3xl font-bold">Products</h1>
+        <button id="cartToggle" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            Карточки (<span id="cartCount">0</span>)
+        </button>
+    </div>
+
+    <!-- Cart Section (Initially Hidden) -->
+   
+
+    <!-- Products Grid -->
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        
+        <div class="product-card bg-gray-300 rounded-xl p-4 shadow-md" data-id="1" data-price="99.99">
+            <div class="relative">
+                <img src="./Picture.svg" alt="Nike Air Force 1" class="w-full h-70 object-cover rounded-lg mb-4">
+                <button class="like-btn absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+                    <span class="heart-icon text-gray-400">♥️</span>
+                </button>
+            </div>
+            <h2 class="font-bold">NIKE AIR FORCE 1 '07 (white/black)</h2>
+            <p class="text-sm font-semibold">$99.99</p>
+            <p class="text-xs text-gray-600 my-2">Classic Nike sneakers in white and black colorway.</p>
+            <button class="add-to-cart mt-2 w-full bg-gray-500 text-white py-2 rounded-2xl flex items-center justify-center gap-2 hover:bg-gray-600 transition-colors">
+                <img src="./Cart.svg" alt=""> Add to cart
+            </button>
+        </div>
+
+
+        <div class="product-card border-4 border-[#5CA7FF] rounded-xl p-4 shadow-lg bg-[#5CA7FF]" data-id="2" data-price="99.99">
+            <div class="relative">
+                <img src="./Picture.svg" alt="Nike Air Force 1" class="w-full h-70 object-cover rounded-lg mb-4">
+                <button class="like-btn absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+                    <span class="heart-icon text-gray-400">♥️</span>
+                </button>
+            </div>
+            <h2 class="font-bold text-blue-600">NIKE AIR FORCE 1 '07 (white/black)</h2>
+            <p class="text-sm font-semibold">$99.99</p>
+            <p class="text-xs text-gray-600 my-2">Limited edition blue variant.</p>
+            <button class="add-to-cart mt-2 w-full bg-orange-400 text-white py-2 rounded-2xl flex items-center justify-center gap-2 hover:bg-orange-500 transition-colors">
+                <img src="./Cart.svg" alt=""> Add to cart
+            </button>
+        </div>
+
+        <div class="product-card bg-[#D083FF] border-4 border-[#D083FF] rounded-xl p-4 shadow-lg" data-id="3" data-price="99.99">
+            <div class="relative">
+                <img src="./Picture.svg" alt="Nike Air Force 1" class="w-full h-70 object-cover rounded-lg mb-4">
+                <button class="like-btn absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+                    <span class="heart-icon text-gray-400">♥️</span>
+                </button>
+            </div>
+            <h2 class="font-bold text-pink-600">NIKE AIR FORCE 1 '07 (white/black)</h2>
+            <p class="text-sm font-semibold">$99.99</p>
+            <p class="text-xs text-gray-600 my-2">Vibrant purple edition.</p>
+            <button class="add-to-cart mt-2 w-full bg-teal-400 text-white py-2 rounded-2xl flex items-center justify-center gap-2 hover:bg-teal-500 transition-colors">
+                <img src="./Cart.svg" alt=""> Add to cart
+            </button>
+        </div>
+
+        <div class="product-card bg-[#FF99E2] border-4 border-[#FF99E2] rounded-xl p-4 shadow-lg" data-id="4" data-price="99.99">
+            <div class="relative">
+                <img src="./Picture.svg" alt="Nike Air Force 1" class="w-full h-70 object-cover rounded-lg mb-4">
+                <button class="like-btn absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+                    <span class="heart-icon text-gray-400">♥️</span>
+                </button>
+            </div>
+            <h2 class="font-bold text-pink-600">NIKE AIR FORCE 1 '07 (white/black)</h2>
+            <p class="text-sm font-semibold">$99.99</p>
+            <p class="text-xs text-gray-600 my-2">Hot pink special edition.</p>
+            <button class="add-to-cart mt-2 w-full bg-teal-400 text-white py-2 rounded-2xl flex items-center justify-center gap-2 hover:bg-teal-500 transition-colors">
+                <img src="./Cart.svg" alt=""> Add to cart
+            </button>
+        </div>
+
+
+        <div class="product-card bg-[#FF99E2] border-4 border-[#FF99E2] rounded-xl p-4 shadow-lg" data-id="4" data-price="99.99">
+            <div class="relative">
+                <img src="./Picture.svg" alt="Nike Air Force 1" class="w-full h-70 object-cover rounded-lg mb-4">
+                <button class="like-btn absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+                    <span class="heart-icon text-gray-400">♥️</span>
+                </button>
+            </div>
+            <h2 class="font-bold text-pink-600">NIKE AIR FORCE 1 '07 (white/black)</h2>
+            <p class="text-sm font-semibold">$99.99</p>
+            <p class="text-xs text-gray-600 my-2">Hot pink special edition.</p>
+            <button class="add-to-cart mt-2 w-full bg-teal-400 text-white py-2 rounded-2xl flex items-center justify-center gap-2 hover:bg-teal-500 transition-colors">
+                <img src="./Cart.svg" alt=""> Add to cart
+            </button>
+        </div>
+
+        <div class="product-card bg-[#FF99E2] border-4 border-[#FF99E2] rounded-xl p-4 shadow-lg" data-id="4" data-price="99.99">
+            <div class="relative">
+                <img src="./Picture.svg" alt="Nike Air Force 1" class="w-full h-70 object-cover rounded-lg mb-4">
+                <button class="like-btn absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
+                    <span class="heart-icon text-gray-400">♥️</span>
+                </button>
+            </div>
+            <h2 class="font-bold text-pink-600">NIKE AIR FORCE 1 '07 (white/black)</h2>
+            <p class="text-sm font-semibold">$99.99</p>
+            <p class="text-xs text-gray-600 my-2">Hot pink special edition.</p>
+            <button class="add-to-cart mt-2 w-full bg-teal-400 text-white py-2 rounded-2xl flex items-center justify-center gap-2 hover:bg-teal-500 transition-colors">
+                <img src="./Cart.svg" alt=""> Add to cart
+            </button>
+        </div>
+
+        <!-- Cart Section (Updated Style) -->
+<!-- Cart Section (Updated Style) -->
+<div id="cartSection" class="hidden mb-8 p-6 bg-white bg-opacity-20 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/30">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-white text-3xl font-bold flex items-center gap-2">
+            🛒 <span>Покупки</span>
+        </h2>
+        <button id="clearCart" class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-5 py-2 rounded-xl hover:scale-105 active:scale-95 transition-transform duration-200 font-medium shadow-lg">
+            🧹 Корзина
+        </button>
+    </div>
+    <div id="cartItems" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Cart items will be added here -->
+    </div>
+    <div class="mt-6 text-right">
+        <p class="text-white text-2xl font-semibold">
+            Общий сумма: 
+            <span class="text-yellow-300">$<span id="cartTotal">0.00</span></span>
+        </p>
+    </div>
+</div>
+
+
+        
+    </div>
+<script src="./main.js"></script>
+</body>
+</html>
